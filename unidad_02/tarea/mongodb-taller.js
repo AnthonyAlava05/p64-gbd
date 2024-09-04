@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const uri="mongodb+srv://anthony1:12345@practica6.hjh57.mongodb.net/"
 const dbName = "TALLER01-BASEDEDATOS";
@@ -15,12 +15,12 @@ async function main() {
         const db = client.db(dbName);
 
         // Crear las colecciones
-        //await db.createCollection("Empleados");
-        //await db.createCollection("Facturas");
-        //await db.createCollection("Pais");
-        //await db.createCollection("Ciudades");
-        //await db.createCollection("Clientes");
-        //await db.createCollection("Productos");
+        /*await db.createCollection("Empleados");
+        await db.createCollection("Facturas");
+        await db.createCollection("Pais");
+        await db.createCollection("Ciudades");
+        await db.createCollection("Clientes");
+        await db.createCollection("Productos");
 
         console.log("Colecciones creadas exitosamente");
 
@@ -75,6 +75,89 @@ async function main() {
         console.log("Empleados agregados exitosamente");
 
         // Puedes seguir agregando más documentos en otras colecciones de manera similar
+
+        const paisCollection= db.collection("Pais");
+        await paisCollection.insertMany([
+            {
+                nombre:'Ecuador'
+            },
+            {
+                nombre:'México'
+            },
+            {
+                nombre:'Estados Unidos'
+            },
+            {
+                nombre:'Venezuela'
+            },
+            {
+                nombre:'Colombia'
+            }
+        ])
+        console.log("Países ingresados correctamente")
+        const ciudadCollection = db.collection("Ciudades");
+        await ciudadCollection.insertMany([
+            {
+                nombre:'Guayaquil',
+                pais: new ObjectId('66d7de5c40eb3e8b4220f07f')
+            },
+            {
+                nombre:'Monterrey',
+                pais: new ObjectId('66d7de5c40eb3e8b4220f080')
+            },
+            {
+                nombre:'Quevedo',
+                pais: new ObjectId('66d7de5c40eb3e8b4220f07f')
+            },
+            {
+                nombre:'Salinas',
+                pais: new ObjectId('66d7de5c40eb3e8b4220f07f')
+            },
+            {
+                nombre:'Quito',
+                pais: new ObjectId('66d7de5c40eb3e8b4220f07f')
+            }
+        ])
+        console.log("Ciudades ingresadas correctamente")*/
+        const clientesCollection = db.collection("Clientes")
+        await clientesCollection.insertMany([
+            {
+                cedula: '1202386163',
+                nombre: 'Axel ',
+                apellido: 'Castillo',
+                domicilio:'Guasmo Sur',
+                ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
+            },
+            {
+                cedula: '1202206163',
+                nombre: 'Camila ',
+                apellido: 'Andrade',
+                domicilio:'Cdla. El Cóndor',
+                ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
+            },
+            {
+                cedula: '1230386163',
+                nombre: 'Carlos ',
+                apellido: 'Hernandez',
+                domicilio:'Pradera',
+                ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
+            },
+            {
+                cedula: '1202384168',
+                nombre: 'Camila ',
+                apellido: 'Cordova',
+                domicilio:'El Fortin',
+                ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
+            },
+            {
+                cedula: '1802386563',
+                nombre: 'Analia',
+                apellido: 'Morales',
+                domicilio:'Cdla. Naval Norte',
+                ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
+            }
+        ])
+        console.log("Clientes ingresados correctamente")
 
     } catch (err) {
         console.error(err);
