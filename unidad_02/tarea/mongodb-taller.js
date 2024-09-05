@@ -118,7 +118,7 @@ async function main() {
                 pais: new ObjectId('66d7de5c40eb3e8b4220f07f')
             }
         ])
-        console.log("Ciudades ingresadas correctamente")*/
+        console.log("Ciudades ingresadas correctamente")
         const clientesCollection = db.collection("Clientes")
         await clientesCollection.insertMany([
             {
@@ -157,7 +157,8 @@ async function main() {
                 ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
             }
         ])
-        console.log("Clientes ingresados correctamente")
+        console.log("Clientes ingresados correctamente")*/
+        
 
     } catch (err) {
         console.error(err);
