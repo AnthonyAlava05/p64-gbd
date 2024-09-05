@@ -157,8 +157,130 @@ async function main() {
                 ciudad: new ObjectId('66d7e12b8be89b145cbdf1f9')
             }
         ])
-        console.log("Clientes ingresados correctamente")*/
-        
+        console.log("Clientes ingresados correctamente")
+        const productosCollection= db.collection("Productos");
+        await productosCollection.insertMany([
+            {
+                nombre: 'Mouse Logitch',
+                valor:50.0
+            },
+            {
+                nombre: 'Teclado HP - Mecánico',
+                valor:20.0
+            },
+            {
+                nombre: 'Laptop ASUS TUF GAMING A15',
+                valor:900.0
+            },
+            {
+                nombre: 'Celular Infinix GT20 PRO',
+                valor:300.0
+            },
+            {
+                nombre: 'Keyboard Wifi',
+                valor:50.0
+            }
+        ])
+        console.log("Productos Ingresados Correctamente")*/
+        const facturasCollection = db.collection("Factuas");
+        await facturasCollection.insertMany([
+            {
+                codigo:"0001-002-0001",
+                fecha_emision: new Date(),
+                valor_subtotal:300.0,
+                valor_iva:12.0,
+                valor_total:336.0,
+                empleado: new ObjectId('66cecf67d05cff303ede5809'),
+                cliente: new ObjectId('66d7e34789708d9f879cb3f5'),
+                detalles:[
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d8'),
+                        cantidad:1,
+                        valor_x_cantidad:300.0
+                    }
+                ]
+            },
+            {
+                codigo:"0001-002-0002",
+                fecha_emision: new Date(),
+                valor_subtotal:1000.0,
+                valor_iva:12.0,
+                valor_total:1120.0,
+                empleado: new ObjectId('66cecf67d05cff303ede580a'),
+                cliente: new ObjectId('66d7e34789708d9f879cb3f6'),
+                detalles:[
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d5'),
+                        cantidad:2,
+                        valor_x_cantidad:100.0
+                    },
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d7'),
+                        cantidad:1,
+                        valor_x_cantidad:900.0
+                    }
+                ]
+            },
+            {
+                codigo:"0001-002-0003",
+                fecha_emision: new Date(),
+                valor_subtotal:100.0,
+                valor_iva:12.0,
+                valor_total:112.0,
+                empleado: new ObjectId('66cecf67d05cff303ede580b'),
+                cliente: new ObjectId('66d7e34789708d9f879cb3f8'),
+                detalles:[
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d9'),
+                        cantidad:2,
+                        valor_x_cantidad:100.0
+                    }
+                ]
+            },
+            {
+                codigo:"0001-002-0004",
+                fecha_emision: new Date(),
+                valor_subtotal:970.0,
+                valor_iva:12.0,
+                valor_total:1086.4,
+                empleado: new ObjectId('66cecf67d05cff303ede580d'),
+                cliente: new ObjectId('66d7e34789708d9f879cb3f9'),
+                detalles:[
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d7'),
+                        cantidad:1,
+                        valor_x_cantidad:900.0
+                    },
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d5'),
+                        cantidad:1,
+                        valor_x_cantidad:50.0
+                    },
+                    {
+                        producto:new ObjectId('66d91837bbbd184f6081c6d6'),
+                        cantidad:1,
+                        valor_x_cantidad:20.0
+                    }
+                ]
+            },
+            {
+                codigo:"0001-002-0005",
+                fecha_emision: new Date(),
+                valor_subtotal:300.0,
+                valor_iva:12.0,
+                valor_total:336.0,
+                empleado: new ObjectId('66cecf67d05cff303ede580d'),
+                cliente: new ObjectId('66d7e34789708d9f879cb3f7'),
+                detalles:[
+                    {
+                        producto:new ObjectId(),
+                        cantidad:1,
+                        valor_x_cantidad:300.0
+                    }
+                ]
+            }
+        ])
+        console.log("Facturas generadas correctamente")
 
     } catch (err) {
         console.error(err);
