@@ -6,16 +6,16 @@ async function main() {
     const client = new MongoClient(uri);
 
     try {
-        // Conectar al servidor de MongoDB
+        
         await client.connect();
 
         console.log(`Conectado a MongoDB, creando base de datos: ${dbName}`);
 
-        // Crear o acceder a la base de datos
+       
         const db = client.db(dbName);
 
-        // Crear las colecciones
-        /*await db.createCollection("Empleados");
+        
+        await db.createCollection("Empleados");
         await db.createCollection("Facturas");
         await db.createCollection("Pais");
         await db.createCollection("Ciudades");
@@ -24,7 +24,7 @@ async function main() {
 
         console.log("Colecciones creadas exitosamente");
 
-        // Insertar documentos en las colecciones
+        
         const empleadosCollection = db.collection("Empleados");
         await empleadosCollection.insertMany([
             {
@@ -74,7 +74,7 @@ async function main() {
 
         console.log("Empleados agregados exitosamente");
 
-        // Puedes seguir agregando más documentos en otras colecciones de manera similar
+        
 
         const paisCollection= db.collection("Pais");
         await paisCollection.insertMany([
@@ -119,6 +119,7 @@ async function main() {
             }
         ])
         console.log("Ciudades ingresadas correctamente")
+
         const clientesCollection = db.collection("Clientes")
         await clientesCollection.insertMany([
             {
@@ -158,6 +159,7 @@ async function main() {
             }
         ])
         console.log("Clientes ingresados correctamente")
+
         const productosCollection= db.collection("Productos");
         await productosCollection.insertMany([
             {
@@ -181,8 +183,9 @@ async function main() {
                 valor:50.0
             }
         ])
-        console.log("Productos Ingresados Correctamente")*/
-        const facturasCollection = db.collection("Factuas");
+        console.log("Productos Ingresados Correctamente")
+        
+        const facturasCollection = db.collection("Facturas");
         await facturasCollection.insertMany([
             {
                 codigo:"0001-002-0001",
